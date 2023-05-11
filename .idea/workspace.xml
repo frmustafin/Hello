@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="374cdd1c-a1fd-4210-aaf3-764dfd05db08" name="Changes" comment="в мастере только readme" />
+    <list default="true" id="374cdd1c-a1fd-4210-aaf3-764dfd05db08" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/Hello.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/Hello.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/Hello.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/Hello.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/Hello.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/m1l1-hello/Hello.m1l1-hello.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/m1l1-hello/Hello.m1l1-hello.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/m1l1-hello/Hello.m1l1-hello.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/m1l1-hello/Hello.m1l1-hello.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1l1-hello/settings.gradle.kts" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +68,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="home-1" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -188,6 +204,7 @@
       <workItem from="1683833483207" duration="1813000" />
       <workItem from="1683835348662" duration="304000" />
       <workItem from="1683835658789" duration="287000" />
+      <workItem from="1683835964240" duration="409000" />
     </task>
     <task id="LOCAL-00001" summary="добавил файл gitignore">
       <created>1683834947468</created>
@@ -210,7 +227,28 @@
       <option name="project" value="LOCAL" />
       <updated>1683835525183</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="в мастере только readme">
+      <created>1683835992462</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683835992462</updated>
+    </task>
+    <task id="LOCAL-00005" summary="в мастере только readme">
+      <created>1683836064240</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683836064240</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Initial commit&#10;&#10;(cherry picked from commit 2f63b2d248b1f55718df61088050d35d46dcb832)">
+      <created>1683836259007</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683836259008</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +265,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="home-1" />
                       </list>
                     </value>
                   </entry>
@@ -242,6 +280,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="добавил файл gitignore" />
     <MESSAGE value="в мастере только readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="в мастере только readme" />
+    <MESSAGE value="Initial commit&#10;&#10;(cherry picked from commit 2f63b2d248b1f55718df61088050d35d46dcb832)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit&#10;&#10;(cherry picked from commit 2f63b2d248b1f55718df61088050d35d46dcb832)" />
   </component>
 </project>
