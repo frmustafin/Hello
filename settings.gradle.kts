@@ -1,7 +1,6 @@
 rootProject.name = "Hello"
 
-//include("m1l1-hello")
-include("m2l8-marketing")
+include("m1l1-hello")
 
 pluginManagement {
     val kotlinVersion: String by settings
