@@ -6,9 +6,6 @@
 **Swipe** - это сервис, для романтических знакомств, где пользователь может заполнить информацию о себе и найти
 партнера половинку по интересам.
 
-## Визуальная схема фронтенда
-Фото будут тут 
-
 ## Документация
 
 1. Маркетинг
@@ -17,25 +14,18 @@
     3. [Конкурентный анализ](./docs/marketing/03-concurrency.md)
     4. [Анализ экономики](./docs/marketing/04-economy.md)
     5. [Пользовательские истории](./docs/marketing/05-user-stories.md)
-
-[//]: # (2. DevOps)
-
-[//]: # (    1. [Схема инфраструктуры]&#40;./docs/02-devops/01-infrastruture.md&#41;)
-
-[//]: # (    2. [Схема мониторинга]&#40;./docs/02-devops/02-monitoring.md&#41;)
-
-[//]: # (3. Тесты)
-
-[//]: # (4. Архитектура)
-
-[//]: # (    1. [Компонентная схема]&#40;./docs/04-architecture/01-arch.md&#41;)
-
-[//]: # (    2. [Интеграционная схема]&#40;./docs/04-architecture/02-integration.md&#41;)
-
-[//]: # (    3. [Описание API]&#40;./docs/04-architecture/03-api.md&#41;)
-
+    
 ## Документация
 
 2. DevOps
-    1. [Схема инфраструктуры]()
-    2. [Схема мониторинга]()
+    1. [Схема архитектуры](/Users/frmustafin/projects/Hello/docs/architecture/structure.md)
+
+## Визуальная схема фронтенда
+![Главная страница](/Users/frmustafin/Desktop/OTUS/main_home.png)
+![Заполненная анкета](/Users/frmustafin/Desktop/OTUS/anketa_main.png)
+
+![Часть анкеты для заполнения инфо о себе часть 1](/Users/frmustafin/Desktop/OTUS/anketa.png)
+![Часть анкеты для заполнения инфо о себе часть 2](/Users/frmustafin/Desktop/OTUS/anketa_1.png)
+![Часть анкеты для заполнения инфо о себе часть 3](/Users/frmustafin/Desktop/OTUS/add_photo.png)
+![Поиск других анкет](/Users/frmustafin/Desktop/OTUS/another_anketa.png)
+![Личный сообщения](/Users/frmustafin/Desktop/OTUS/direct.png)
