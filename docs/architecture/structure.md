@@ -8,7 +8,7 @@
    3. Гендер (Enum М|Ж)
    4. Интересы (Enum)
    5. Описание (256 символов)
-   6. Фото
+   6. Фото (Хранилище файлов)
 
 ## Функции (Endpoints)
 
@@ -21,4 +21,4 @@
    1. SEARCH
 
 ## Архитектура приложения
-![Архитектура](/Users/frmustafin/Desktop/OTUS/architecture.png)
+![Архитектура](./docs/img/architecture.png)
