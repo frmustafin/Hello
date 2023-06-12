@@ -21,4 +21,4 @@
    1. SEARCH
 
 ## Архитектура приложения
-![Архитектура](./docs/img/architecture.png)
+![Архитектура](/Users/frmustafin/projects/Hello/docs/img/architecture_geks.png)
