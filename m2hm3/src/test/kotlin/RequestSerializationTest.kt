@@ -4,17 +4,19 @@ import kotlin.test.assertContains
 import kotlin.test.assertEquals
 
 class RequestSerializationTest {
-    private val request = AdCreateRequest(
+    private val request = ProfileCreateRequest(
         requestId = "123",
-        debug = AdDebug(
-            mode = AdRequestDebugMode.STUB,
-            stub = AdRequestDebugStubs.BAD_TITLE
+        debug = ProfileDebug(
+            mode = ProfileRequestDebugMode.STUB,
+            stub = ProfileRequestDebugStubs.BAD_NAME
         ),
-        ad = AdCreateObject(
-            title = "ad title",
-            description = "ad description",
-            adType = DealSide.DEMAND,
-            visibility = AdVisibility.PUBLIC,
+        profile = ProfileCreateObject(
+            name = "Farid",
+            age = 25,
+            gender = Gender.MAN,
+            hobbies = Hobbies.BEER,
+            description = "profile description",
+            visibility = ProfileVisibility.PUBLIC,
         )
     )
 
@@ -22,16 +24,20 @@ class RequestSerializationTest {
     fun serialize() {
         val json = apiV1Mapper.writeValueAsString(request)
 
-        assertContains(json, Regex("\"title\":\\s*\"ad title\""))
+        assertContains(json, Regex("\"name\":\\s*\"Farid\""))
+        assertContains(json, Regex("\"age\":\\s*25"))
+        assertContains(json, Regex("\"gender\":\\s*\"man\""))
+        assertContains(json, Regex("\"hobbies\":\\s*\"beer\""))
+        assertContains(json, Regex("\"description\":\\s*\"profile description\""))
         assertContains(json, Regex("\"mode\":\\s*\"stub\""))
-        assertContains(json, Regex("\"stub\":\\s*\"badTitle\""))
+        assertContains(json, Regex("\"stub\":\\s*\"badName\""))
         assertContains(json, Regex("\"requestType\":\\s*\"create\""))
     }
 
     @Test
     fun deserialize() {
         val json = apiV1Mapper.writeValueAsString(request)
-        val obj = apiV1Mapper.readValue(json, IRequest::class.java) as AdCreateRequest
+        val obj = apiV1Mapper.readValue(json, IRequest::class.java) as ProfileCreateRequest
 
         assertEquals(request, obj)
     }
@@ -41,7 +47,7 @@ class RequestSerializationTest {
         val jsonString = """
             {"requestId": "123"}
         """.trimIndent()
-        val obj = apiV1Mapper.readValue(jsonString, AdCreateRequest::class.java)
+        val obj = apiV1Mapper.readValue(jsonString, ProfileCreateRequest::class.java)
 
         assertEquals("123", obj.requestId)
     }

@@ -1,7 +1,7 @@
 openapi: 3.0.4
 info:
-  title: "Marketplace ${VERSION_APP}"
-  description: This is a place where sellers and buyers meat each other
+  title: "Swipe ${VERSION_APP}"
+  description: This is a dating app
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
@@ -9,21 +9,21 @@ info:
 servers:
   - url: http://localhost:8080/v1
 tags:
-  - name: ad
-    description: Объявление (о покупке или продаже)
+  - name: profile
+    description: Профиль пользователя
 paths:
-  /ad/create:
+  /profile/create:
     post:
       tags:
-        - ad
-      summary: Create ad
-      operationId: adCreate
+        - profile
+      summary: Create profile
+      operationId: profileCreate
       requestBody:
         description: Request body
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AdCreateRequest'
+              $ref: '#/components/schemas/ProfileCreateRequest'
         required: true
       responses:
         200:
@@ -31,19 +31,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AdCreateResponse'
-  /ad/read:
+                $ref: '#/components/schemas/ProfileCreateResponse'
+  /profile/read:
     post:
       tags:
-        - ad
-      summary: Read ad
-      operationId: adRead
+        - profile
+      summary: Read profile
+      operationId: profileRead
       requestBody:
         description: Request body
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AdReadRequest'
+              $ref: '#/components/schemas/ProfileReadRequest'
         required: true
       responses:
         200:
@@ -51,19 +51,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AdReadResponse'
-  /ad/update:
+                $ref: '#/components/schemas/ProfileReadResponse'
+  /profile/update:
     post:
       tags:
-        - ad
-      summary: Update ad
-      operationId: adUpdate
+        - profile
+      summary: Update profile
+      operationId: profileUpdate
       requestBody:
         description: Request body
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AdUpdateRequest'
+              $ref: '#/components/schemas/ProfileUpdateRequest'
         required: true
       responses:
         200:
@@ -71,19 +71,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AdUpdateResponse'
-  /ad/delete:
+                $ref: '#/components/schemas/ProfileUpdateResponse'
+  /profile/delete:
     post:
       tags:
-        - ad
-      summary: Delete ad
-      operationId: adDelete
+        - profile
+      summary: Delete profile
+      operationId: profileDelete
       requestBody:
         description: Request body
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AdDeleteRequest'
+              $ref: '#/components/schemas/ProfileDeleteRequest'
         required: true
       responses:
         200:
@@ -91,19 +91,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AdDeleteResponse'
-  /ad/search:
+                $ref: '#/components/schemas/ProfileDeleteResponse'
+  /profile/search:
     post:
       tags:
-        - ad
-      summary: Search ad
-      operationId: adSearch
+        - profile
+      summary: Search profile
+      operationId: profileSearch
       requestBody:
         description: Request body
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AdSearchRequest'
+              $ref: '#/components/schemas/ProfileSearchRequest'
         required: true
       responses:
         200:
@@ -111,19 +111,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AdSearchResponse'
-  /ad/offers:
+                $ref: '#/components/schemas/ProfileSearchResponse'
+  /profile/offers:
     post:
       tags:
-        - ad
+        - profile
       summary: Search offers
-      operationId: adOffers
+      operationId: profileOffers
       requestBody:
         description: Request body
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AdOffersRequest'
+              $ref: '#/components/schemas/ProfileOffersRequest'
         required: true
       responses:
         200:
@@ -131,7 +131,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AdOffersResponse'
+                $ref: '#/components/schemas/ProfileOffersResponse'
 
 components:
   schemas:
@@ -150,12 +150,12 @@ components:
       discriminator:
         propertyName: requestType
         mapping:
-          create: '#/components/schemas/AdCreateRequest'
-          read:   '#/components/schemas/AdReadRequest'
-          update: '#/components/schemas/AdUpdateRequest'
-          delete: '#/components/schemas/AdDeleteRequest'
-          search: '#/components/schemas/AdSearchRequest'
-          offers: '#/components/schemas/AdOffersRequest'
+          create: '#/components/schemas/ProfileCreateRequest'
+          read:   '#/components/schemas/ProfileReadRequest'
+          update: '#/components/schemas/ProfileUpdateRequest'
+          delete: '#/components/schemas/ProfileDeleteRequest'
+          search: '#/components/schemas/ProfileSearchRequest'
+          offers: '#/components/schemas/ProfileOffersRequest'
 
     Error:
       type: object
@@ -196,175 +196,183 @@ components:
       discriminator:
         propertyName: responseType
         mapping:
-          create: '#/components/schemas/AdCreateResponse'
-          read:   '#/components/schemas/AdReadResponse'
-          update: '#/components/schemas/AdUpdateResponse'
-          delete: '#/components/schemas/AdDeleteResponse'
-          search: '#/components/schemas/AdSearchResponse'
-          offers: '#/components/schemas/AdOffersResponse'
-          init: '#/components/schemas/AdInitResponse'
+          create: '#/components/schemas/ProfileCreateResponse'
+          read:   '#/components/schemas/ProfileReadResponse'
+          update: '#/components/schemas/ProfileUpdateResponse'
+          delete: '#/components/schemas/ProfileDeleteResponse'
+          search: '#/components/schemas/ProfileSearchResponse'
+          offers: '#/components/schemas/ProfileOffersResponse'
+          init: '#/components/schemas/ProfileInitResponse'
 
-
-    UserId:
+    ProfileId:
       type: string
       description: Идентификатор пользователя
-    AdId:
-      type: string
-      description: Идентификатор объявления
-    AdLock:
+    ProfileLock:
       type: string
       description: Версия оптимистичной блокировки
 
-    BaseAd:
+    BaseProfile:
       type: object
       description: Объект описывает свойства, одинаковые для create и update
       properties:
-        title:
+        name:
           type: string
-          description: Заголовок объявления
+          description: Имя пользователя
+        age:
+          type: integer
+          description: Возраст
         description:
           type: string
-          description: Описание объявления
-        adType:
-          $ref: '#/components/schemas/DealSide'
+          description: Краткое описание профиля
+        gender:
+          $ref: '#/components/schemas/Gender'
+        hobbies:
+          $ref: '#/components/schemas/Hobbies'
         visibility:
-          $ref: '#/components/schemas/AdVisibility'
+          $ref: '#/components/schemas/ProfileVisibility'
 
-    DealSide:
+    Gender:
       type: string
-      description: 'Сторона сделки: спрос или предложение'
+      description: Гендер пользователя
       enum:
-        - demand
-        - supply
+        - man
+        - woman
 
-    AdVisibility:
+    Hobbies:
       type: string
-      description: 'Тип видимости объявления. Возможные значения: видит только владелец, только зарегистрированный в системе пользователь, видимо всем'
+      description: Хобби и интересы
+      enum:
+        - music
+        - movie
+        - haiking
+        - beer
+
+    ProfileVisibility:
+      type: string
+      description: 'Тип видимости профиля пользователя. Возможные значения: видит только владелец, только зарегистрированный в системе пользователь, видимо всем'
       enum:
         - ownerOnly
         - registeredOnly
         - public
 
-    AdInitResponse:
+    ProfileInitResponse:
       allOf:
         - $ref: '#/components/schemas/IResponse'
 
-    AdCreateObject:
+    ProfileCreateObject:
       allOf:
-        - $ref: '#/components/schemas/BaseAd'
+        - $ref: '#/components/schemas/BaseProfile'
 
-    AdCreateRequest:
+    ProfileCreateRequest:
       allOf:
         - $ref: '#/components/schemas/IRequest'
-        - $ref: '#/components/schemas/AdRequestDebug'
+        - $ref: '#/components/schemas/ProfileRequestDebug'
         - type: object
           properties:
-            ad:
-              $ref: '#/components/schemas/AdCreateObject'
+            profile:
+              $ref: '#/components/schemas/ProfileCreateObject'
 
-    AdReadObject:
+    ProfileReadObject:
       allOf:
         - type: object
           properties:
             id:
-              $ref: '#/components/schemas/AdId'
+              $ref: '#/components/schemas/ProfileId'
 
-    AdReadRequest:
+    ProfileReadRequest:
       allOf:
         - $ref: '#/components/schemas/IRequest'
-        - $ref: '#/components/schemas/AdRequestDebug'
+        - $ref: '#/components/schemas/ProfileRequestDebug'
         - type: object
           properties:
-            ad:
-              $ref: '#/components/schemas/AdReadObject'
+            profile:
+              $ref: '#/components/schemas/ProfileReadObject'
 
-    AdUpdateObject:
+    ProfileUpdateObject:
       allOf:
-        - $ref: '#/components/schemas/BaseAd'
+        - $ref: '#/components/schemas/BaseProfile'
         - type: object
           properties:
             id:
-              $ref: '#/components/schemas/AdId'
+              $ref: '#/components/schemas/ProfileId'
             lock:
-              $ref: '#/components/schemas/AdLock'
+              $ref: '#/components/schemas/ProfileLock'
 
-    AdUpdateRequest:
+    ProfileUpdateRequest:
       allOf:
         - $ref: '#/components/schemas/IRequest'
-        - $ref: '#/components/schemas/AdRequestDebug'
+        - $ref: '#/components/schemas/ProfileRequestDebug'
         - type: object
           properties:
-            ad:
-              $ref: '#/components/schemas/AdUpdateObject'
+            profile:
+              $ref: '#/components/schemas/ProfileUpdateObject'
 
-    AdDeleteObject:
+    ProfileDeleteObject:
       allOf:
         - type: object
           properties:
             id:
-              $ref: '#/components/schemas/AdId'
+              $ref: '#/components/schemas/ProfileId'
             lock:
-              $ref: '#/components/schemas/AdLock'
+              $ref: '#/components/schemas/ProfileLock'
 
-    AdDeleteRequest:
+    ProfileDeleteRequest:
       allOf:
         - $ref: '#/components/schemas/IRequest'
-        - $ref: '#/components/schemas/AdRequestDebug'
+        - $ref: '#/components/schemas/ProfileRequestDebug'
         - type: object
           properties:
-            ad:
-              $ref: '#/components/schemas/AdDeleteObject'
+            profile:
+              $ref: '#/components/schemas/ProfileDeleteObject'
 
-    AdSearchFilter:
+    ProfileSearchFilter:
       type: object
       description: Набор фильтров для поиска
       properties:
         searchString:
           type: string
-          description: Поисковая строка, которая будет искаться в объявлениях
+          description: Поисковая строка, которая будет искаться в профилях
 
-    AdSearchRequest:
+    ProfileSearchRequest:
       allOf:
         - $ref: '#/components/schemas/IRequest'
-        - $ref: '#/components/schemas/AdRequestDebug'
+        - $ref: '#/components/schemas/ProfileRequestDebug'
         - type: object
           properties:
-            adFilter:
-              $ref: '#/components/schemas/AdSearchFilter'
+            profileFilter:
+              $ref: '#/components/schemas/ProfileSearchFilter'
 
-    AdOffersObject:
-      $ref: '#/components/schemas/AdReadObject'
+    ProfileOffersObject:
+      $ref: '#/components/schemas/ProfileReadObject'
 
-    AdOffersRequest:
+    ProfileOffersRequest:
       allOf:
         - $ref: '#/components/schemas/IRequest'
-        - $ref: '#/components/schemas/AdRequestDebug'
+        - $ref: '#/components/schemas/ProfileRequestDebug'
         - type: object
           properties:
-            ad:
-              $ref: '#/components/schemas/AdOffersObject'
+            profile:
+              $ref: '#/components/schemas/ProfileOffersObject'
 
-    AdResponseObject:
+    ProfileResponseObject:
       allOf:
-        - $ref: '#/components/schemas/BaseAd'
+        - $ref: '#/components/schemas/BaseProfile'
         - type: object
           description: Объект, который возвращается в ответе бэкенда
           properties:
-            id:
-              $ref: '#/components/schemas/AdId'
             ownerId:
-              $ref: '#/components/schemas/UserId'
+              $ref: '#/components/schemas/ProfileId'
             lock:
-              $ref: '#/components/schemas/AdLock'
+              $ref: '#/components/schemas/ProfileLock'
             permissions:
               type: array
               uniqueItems: true
               items:
-                $ref: '#/components/schemas/AdPermissions'
+                $ref: '#/components/schemas/ProfilePermissions'
 
-    AdPermissions:
+    ProfilePermissions:
       type: string
-      description: Доступы для клиента для операций над объявлением
+      description: Доступы для клиента для операций над профилем
       enum:
         - read
         - update
@@ -373,85 +381,88 @@ components:
         - makeVisibleOwn
         - makeVisibleGroup
 
-    AdResponseSingle:
+    ProfileResponseSingle:
       allOf:
         - type: object
-          description: Ответ с одним объектом объявления
+          description: Ответ с одним объектом профилем
           properties:
-            ad:
-              $ref: '#/components/schemas/AdResponseObject'
+            profile:
+              $ref: '#/components/schemas/ProfileResponseObject'
 
-    AdResponseMulti:
+    ProfileResponseMulti:
       allOf:
         - type: object
-          description: Список найденных объектов
+          description: Список найденных профилей
           properties:
-            ads:
+            profiles:
               type: array
               items:
-                $ref: '#/components/schemas/AdResponseObject'
+                $ref: '#/components/schemas/ProfileResponseObject'
 
-    AdCreateResponse:
+    ProfileCreateResponse:
       allOf:
         - $ref: '#/components/schemas/IResponse'
-        - $ref: '#/components/schemas/AdResponseSingle'
+        - $ref: '#/components/schemas/ProfileResponseSingle'
 
-    AdReadResponse:
+    ProfileReadResponse:
       allOf:
         - $ref: '#/components/schemas/IResponse'
-        - $ref: '#/components/schemas/AdResponseSingle'
+        - $ref: '#/components/schemas/ProfileResponseSingle'
 
-    AdUpdateResponse:
+    ProfileUpdateResponse:
       allOf:
         - $ref: '#/components/schemas/IResponse'
-        - $ref: '#/components/schemas/AdResponseSingle'
+        - $ref: '#/components/schemas/ProfileResponseSingle'
 
-    AdDeleteResponse:
+    ProfileDeleteResponse:
       allOf:
         - $ref: '#/components/schemas/IResponse'
-        - $ref: '#/components/schemas/AdResponseSingle'
+        - $ref: '#/components/schemas/ProfileResponseSingle'
 
-    AdSearchResponse:
+    ProfileSearchResponse:
       allOf:
         - $ref: '#/components/schemas/IResponse'
-        - $ref: '#/components/schemas/AdResponseMulti'
+        - $ref: '#/components/schemas/ProfileResponseMulti'
 
-    AdOffersResponse:
+    ProfileOffersResponse:
       allOf:
         - $ref: '#/components/schemas/IResponse'
-        - $ref: '#/components/schemas/AdResponseSingle'
-        - $ref: '#/components/schemas/AdResponseMulti'
+        - $ref: '#/components/schemas/ProfileResponseSingle'
+        - $ref: '#/components/schemas/ProfileResponseMulti'
 
     # STUBS ======================
-    AdRequestDebugMode:
+    ProfileRequestDebugMode:
       type: string
       enum:
         - prod
         - test
         - stub
 
-    AdRequestDebug:
+    ProfileRequestDebug:
       type: object
       properties:
         debug:
-          $ref: '#/components/schemas/AdDebug'
+          $ref: '#/components/schemas/ProfileDebug'
 
-    AdDebug:
+    ProfileDebug:
       type: object
       properties:
         mode:
-          $ref: '#/components/schemas/AdRequestDebugMode'
+          $ref: '#/components/schemas/ProfileRequestDebugMode'
         stub:
-          $ref: '#/components/schemas/AdRequestDebugStubs'
+          $ref: '#/components/schemas/ProfileRequestDebugStubs'
 
-    AdRequestDebugStubs:
+    ProfileRequestDebugStubs:
       type: string
       description: Перечисления всех стабов
       enum:
         - success
         - notFound
         - badId
-        - badTitle
+        - badName
+        - badAge
+        - badGender
+        - badHobbies
         - badDescription
         - badVisibility
         - cannotDelete
