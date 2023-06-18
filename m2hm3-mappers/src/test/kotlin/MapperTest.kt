@@ -44,7 +44,7 @@ class MapperTest {
             requestId = MkplRequestId("1234"),
             command = MkplCommand.CREATE,
             profileResponse = MkplProfile(
-                name = "title",
+                name = "Farid",
                 age = 25,
                 mkplGender = MkplGender.MAN,
                 mkplHobbies = MkplHobbies.BEER,
