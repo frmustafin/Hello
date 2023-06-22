@@ -7,8 +7,8 @@ version = rootProject.version
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation(project(":m2hm3"))
-    implementation(project(":m2hm3-common"))
+    implementation(project(":jackson"))
+    implementation(project(":common"))
 
     testImplementation(kotlin("test-junit"))
 }
