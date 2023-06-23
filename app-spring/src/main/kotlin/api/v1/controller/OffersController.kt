@@ -1,4 +1,4 @@
-package ru.otus.otuskotlin.markeplace.springapp.api.v1.controller
+package fr.mustafin.demo.api.v1.controller
 
 import fr.mustafin.demo.service.MkplProfileBlockingProcessor
 import me.frmustafin.swipe.api.v1.models.ProfileOffersRequest
@@ -12,8 +12,8 @@ import ru.otus.otuskotlin.marketplace.mappers.v1.fromTransport
 import ru.otus.otuskotlin.marketplace.mappers.v1.toTransportOffers
 
 @RestController
-@RequestMapping("v1/ad")
-class OfferController(private val processor: MkplProfileBlockingProcessor) {
+@RequestMapping("v1/profile")
+class OffersController(private val processor: MkplProfileBlockingProcessor) {
 
     @PostMapping("offers")
     fun searchOffers(@RequestBody request: ProfileOffersRequest): ProfileOffersResponse {

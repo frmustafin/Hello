@@ -1,4 +1,4 @@
-package fr.mustafin.demo.service.config
+package fr.mustafin.demo.config
 
 import org.springdoc.core.configuration.SpringDocConfiguration
 import org.springdoc.core.properties.SpringDocConfigProperties

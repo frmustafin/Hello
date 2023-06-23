@@ -1,4 +1,4 @@
-package fr.mustafin.demo.service.config
+package fr.mustafin.demo.config
 
 import kotlinx.serialization.json.Json
 import org.springframework.context.annotation.Bean

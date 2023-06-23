@@ -1,4 +1,4 @@
-package fr.mustafin.demo.service.api.v1.controller
+package fr.mustafin.demo.api.v1.controller
 
 import fr.mustafin.demo.service.MkplProfileBlockingProcessor
 import me.frmustafin.swipe.api.v1.models.*
@@ -12,7 +12,7 @@ import ru.otus.otuskotlin.marketplace.mappers.v1.toTransportSearch
 import ru.otus.otuskotlin.marketplace.mappers.v1.toTransportUpdate
 
 @RestController
-@RequestMapping("v1/ad")
+@RequestMapping("v1/profile")
 class ProfileController(private val processor: MkplProfileBlockingProcessor) {
 
     @PostMapping("create")
