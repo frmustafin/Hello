@@ -1,8 +1,7 @@
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.json.JsonMapper
-import me.frmustafin.api.v1.models.IRequest
-import me.frmustafin.api.v1.models.IResponse
+import me.frmustafin.swipe.api.v1.models.*
 
 val apiV1Mapper = JsonMapper.builder().run {
     configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)

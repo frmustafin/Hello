@@ -1,4 +1,9 @@
-import me.frmustafin.api.v1.models.*
+import me.frmustafin.swipe.api.v1.models.Gender
+import me.frmustafin.swipe.api.v1.models.Hobbies
+import me.frmustafin.swipe.api.v1.models.IResponse
+import me.frmustafin.swipe.api.v1.models.ProfileCreateResponse
+import me.frmustafin.swipe.api.v1.models.ProfileResponseObject
+import me.frmustafin.swipe.api.v1.models.ProfileVisibility
 import kotlin.test.Test
 import kotlin.test.assertContains
 import kotlin.test.assertEquals

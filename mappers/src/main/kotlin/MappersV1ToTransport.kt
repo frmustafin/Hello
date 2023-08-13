@@ -1,6 +1,6 @@
 package ru.otus.otuskotlin.marketplace.mappers.v1
 
-import me.frmustafin.api.v1.models.*
+import me.frmustafin.swipe.api.v1.models.*
 import ru.otus.otuskotlin.marketplace.common.MkplContext
 import ru.otus.otuskotlin.marketplace.common.models.*
 import ru.otus.otuskotlin.marketplace.mappers.v1.exceptions.UnknownMkplCommand

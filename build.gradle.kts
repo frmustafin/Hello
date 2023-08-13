@@ -2,19 +2,21 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm")
-    application
 }
 
+
 allprojects {
-    group = "me.frmustafin"
+    group = "me.frmustafin.swipe"
     version = "1.0-SNAPSHOT"
 
-    repositories{
+    repositories {
         google()
         mavenCentral()
         maven { url = uri("https://jitpack.io") }
     }
+}
 
+subprojects {
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions.jvmTarget = "17"
     }
