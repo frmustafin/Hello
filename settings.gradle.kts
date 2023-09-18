@@ -7,6 +7,7 @@ include("mappers")
 include("app-spring")
 include("biz")
 include("stubs")
+include("rabbit")
 
 pluginManagement {
     val kotlinVersion: String by settings
