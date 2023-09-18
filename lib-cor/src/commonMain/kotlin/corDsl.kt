@@ -1,8 +1,6 @@
-package ru.otus.otuskotlin.marketplace.cor
-
-import ru.otus.otuskotlin.marketplace.cor.handlers.CorChainDsl
-import ru.otus.otuskotlin.marketplace.cor.handlers.CorWorkerDsl
-import ru.otus.otuskotlin.marketplace.cor.handlers.executeParallel
+import handlers.CorChainDsl
+import handlers.CorWorkerDsl
+import handlers.executeParallel
 
 /**
  * Базовый билдер (dsl)

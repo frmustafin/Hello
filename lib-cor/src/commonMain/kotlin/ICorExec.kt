@@ -1,5 +1,3 @@
-package ru.otus.otuskotlin.marketplace.cor
-
 /**
  * Блок кода, который обрабатывает контекст. Имеет имя и описание
  */

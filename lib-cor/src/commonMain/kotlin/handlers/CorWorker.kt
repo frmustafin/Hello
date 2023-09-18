@@ -1,8 +1,8 @@
-package ru.otus.otuskotlin.marketplace.cor.handlers
+package handlers
 
-import ru.otus.otuskotlin.marketplace.cor.CorDslMarker
-import ru.otus.otuskotlin.marketplace.cor.ICorExec
-import ru.otus.otuskotlin.marketplace.cor.ICorWorkerDsl
+import CorDslMarker
+import ICorExec
+import ICorWorkerDsl
 
 class CorWorker<T>(
     title: String,

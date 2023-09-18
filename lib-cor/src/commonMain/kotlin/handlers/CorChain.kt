@@ -1,8 +1,11 @@
-package ru.otus.otuskotlin.marketplace.cor.handlers
+package handlers
 
+import CorDslMarker
+import ICorChainDsl
+import ICorExec
+import ICorExecDsl
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
-import ru.otus.otuskotlin.marketplace.cor.*
 
 /**
  * Реализация цепочки (chain), которая исполняет свои вложенные цепочки и рабочие

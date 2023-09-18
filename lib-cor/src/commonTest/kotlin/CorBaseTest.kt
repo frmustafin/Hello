@@ -1,10 +1,8 @@
-package ru.otus.otuskotlin.marketplace.cor
-
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
-import ru.otus.otuskotlin.marketplace.cor.handlers.CorChain
-import ru.otus.otuskotlin.marketplace.cor.handlers.CorWorker
-import ru.otus.otuskotlin.marketplace.cor.handlers.executeSequential
+import handlers.CorChain
+import handlers.CorWorker
+import handlers.executeSequential
 import kotlin.js.JsName
 import kotlin.test.Test
 import kotlin.test.assertEquals

@@ -1,7 +1,7 @@
-package ru.otus.otuskotlin.marketplace.cor.handlers
+package handlers
 
-import ru.otus.otuskotlin.marketplace.cor.ICorExec
-import ru.otus.otuskotlin.marketplace.cor.ICorExecDsl
+import ICorExec
+import ICorExecDsl
 
 abstract class AbstractCorExec<T>(
     override val title: String,
