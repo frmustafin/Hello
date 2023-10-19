@@ -6,8 +6,8 @@ object MkplProfileStubMan {
     val PROFILE_MAN: MkplProfile
         get() = MkplProfile(
             id = MkplUserId("666"),
-            name = "Alex",
-            age = 26,
+            name = "Ivan",
+            age = 23,
             mkplGender = MkplGender.MAN,
             mkplHobbies = MkplHobbies.BEER,
             description = "Designer from Saint-Petersburg",

@@ -13,4 +13,5 @@ enum class MkplStubs {
     BAD_VISIBILITY,
     CANNOT_DELETE,
     BAD_SEARCH_STRING,
+    DB_ERROR
 }

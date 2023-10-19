@@ -4,7 +4,6 @@ plugins {
 
 kotlin {
     jvm {}
-    linuxX64 {}
 
     sourceSets {
         val coroutinesVersion: String by project
@@ -18,6 +17,7 @@ kotlin {
 
                 implementation(project(":common"))
                 implementation(project(":stubs"))
+                implementation(project(":lib-core"))
             }
         }
         @Suppress("UNUSED_VARIABLE")

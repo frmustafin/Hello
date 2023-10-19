@@ -8,7 +8,7 @@ include("app-spring")
 include("biz")
 include("stubs")
 include("rabbit")
-include("lib-cor")
+include("lib-core")
 
 pluginManagement {
     val kotlinVersion: String by settings
