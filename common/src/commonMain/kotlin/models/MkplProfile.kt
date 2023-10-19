@@ -9,4 +9,8 @@ data class MkplProfile(
     var description: String = "",
     var visibility: MkplVisibility = MkplVisibility.NONE,
     val permissionsClient: MutableSet<MkplProfilePermissionClient> = mutableSetOf()
-)
+) {
+    fun deepCopy(): MkplProfile = copy(
+        permissionsClient = permissionsClient.toMutableSet(),
+    )
+}
