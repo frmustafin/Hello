@@ -15,12 +15,12 @@ import me.frmustafin.swipe.api.v1.models.ProfileCreateResponse
 import me.frmustafin.swipe.api.v1.models.ProfileDebug
 import me.frmustafin.swipe.api.v1.models.ProfileRequestDebugMode
 import me.frmustafin.swipe.api.v1.models.ProfileRequestDebugStubs
+import org.junit.Test
 import org.testcontainers.containers.RabbitMQContainer
 import processor.RabbitDirectProcessor
 import ru.otus.otuskotlin.marketplace.stubs.MkplProfileStub
 import kotlin.test.assertEquals
 import kotlin.test.BeforeTest
-import kotlin.test.Test
 
 //  TODO-rmq-8: тесты в использованием testcontainers
 class RabbitMqTest {

@@ -18,4 +18,10 @@ data class MkplContext(
     var profileFilterRequest: MkplProfileFilter = MkplProfileFilter(),
     var profileResponse: MkplProfile = MkplProfile(),
     var profilesResponse: MutableList<MkplProfile> = mutableListOf(),
+
+    var profileValidating: MkplProfile = MkplProfile(),
+    var profileFilterValidating: MkplProfileFilter = MkplProfileFilter(),
+
+    var profileValidated: MkplProfile = MkplProfile(),
+    var profileFilterValidated: MkplProfileFilter = MkplProfileFilter(),
 )
