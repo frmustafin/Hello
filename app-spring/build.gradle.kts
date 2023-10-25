@@ -35,6 +35,12 @@ dependencies {
 	// biz
 	implementation(project(":biz"))
 
+	// repo
+	implementation(project(":postgresql"))
+	implementation(project(":repo-in-memory"))
+
+	implementation(project(":common"))
+
 	// tests
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 

@@ -9,6 +9,9 @@ include("biz")
 include("stubs")
 include("rabbit")
 include("lib-core")
+include("repo-in-memory")
+include("repo-test")
+include("postgresql")
 
 pluginManagement {
     val kotlinVersion: String by settings

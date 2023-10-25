@@ -18,3 +18,13 @@ springdoc:
     urls:
       - name: v1
         url: specs-profile-v1.yaml
+
+prod-repository: ${PROD_REPOSITORY:test}
+
+sql:
+  url: ${SQL_URL:jdbc:postgresql://localhost:5432/swipe}
+  user: ${SQL_USER:postgres}
+  password: ${SQL_PASSWORD:swipe-pass}
+  schema: ${SQL_SCHEMA:swipe}
+  drop-database: ${SQL_DROP_DATABASE:false}
+  fast-migration: ${SQL_FAST_MIGRATION:true}

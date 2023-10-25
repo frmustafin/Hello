@@ -4,13 +4,11 @@ plugins {
 
 kotlin {
     jvm {}
-    linuxX64 {}
 
     sourceSets {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
-
                 implementation(project(":common"))
             }
         }

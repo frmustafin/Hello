@@ -8,6 +8,7 @@ data class MkplProfile(
     var mkplHobbies: MkplHobbies = MkplHobbies.NONE,
     var description: String = "",
     var visibility: MkplVisibility = MkplVisibility.NONE,
+    var lock: MkplProfileLock = MkplProfileLock.NONE,
     val permissionsClient: MutableSet<MkplProfilePermissionClient> = mutableSetOf()
 ) {
     fun deepCopy(): MkplProfile = copy(
