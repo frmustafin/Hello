@@ -2,12 +2,15 @@ package ru.otus.otuskotlin.marketplace.biz
 
 import biz.groups.operation
 import biz.groups.stubs
+import biz.repo.repoSearch
 import biz.validation.finishProfileFilterValidation
 import biz.validation.finishProfileValidation
 import biz.validation.validateDescriptionHasContent
 import biz.validation.validateDescriptionNotEmpty
 import biz.validation.validateIdNotEmpty
 import biz.validation.validateIdProperFormat
+import biz.validation.validateLockNotEmpty
+import biz.validation.validateLockProperFormat
 import biz.validation.validateNameHasContent
 import biz.validation.validateTitleNotEmpty
 import biz.validation.validation
@@ -25,11 +28,14 @@ import biz.workers.stubValidationBadId
 import biz.workers.stubValidationBadTitle
 import rootChain
 import ru.otus.otuskotlin.marketplace.common.MkplContext
+import ru.otus.otuskotlin.marketplace.common.MkplCorSettings
 import ru.otus.otuskotlin.marketplace.common.models.MkplCommand
+import ru.otus.otuskotlin.marketplace.common.models.MkplProfileLock
 import ru.otus.otuskotlin.marketplace.common.models.MkplUserId
+import ru.otus.otuskotlin.marketplace.common.prepareResult
 import worker
 
-class MkplProfileProcessor {
+class MkplProfileProcessor(val settings: MkplCorSettings = MkplCorSettings()) {
     suspend fun exec(ctx: MkplContext) = BusinessChain.exec(ctx)
 
     companion object {
@@ -84,10 +90,13 @@ class MkplProfileProcessor {
                 validation {
                     worker("Копируем поля в adValidating") { profileValidating = profileRequest.deepCopy() }
                     worker("Очистка id") { profileValidating.id = MkplUserId(profileValidating.id.asString().trim()) }
+                    worker("Очистка lock") { profileValidating.lock = MkplProfileLock(profileValidating.lock.asString().trim()) }
                     worker("Очистка заголовка") { profileValidating.name = profileValidating.name.trim() }
                     worker("Очистка описания") { profileValidating.description = profileValidating.description.trim() }
                     validateIdNotEmpty("Проверка на непустой id")
                     validateIdProperFormat("Проверка формата id")
+                    validateLockNotEmpty("Проверка на непустой lock")
+                    validateLockProperFormat("Проверка формата lock")
                     validateTitleNotEmpty("Проверка на непустой заголовок")
                     validateNameHasContent("Проверка на наличие содержания в заголовке")
                     validateDescriptionNotEmpty("Проверка на непустое описание")
@@ -124,6 +133,8 @@ class MkplProfileProcessor {
 
                     finishProfileFilterValidation("Успешное завершение процедуры валидации")
                 }
+                repoSearch("Поиск объявления в БД по фильтру")
+                prepareResult("Подготовка ответа")
             }
             operation("Поиск подходящих предложений для анкеты", MkplCommand.OFFERS) {
                 stubs("Обработка стабов") {

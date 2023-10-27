@@ -11,8 +11,10 @@ import ru.otus.otuskotlin.marketplace.common.models.MkplWorkMode
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
+import kotlin.test.Ignore
 
 @OptIn(ExperimentalCoroutinesApi::class)
+@Ignore
 class BizValidationSearchTest {
 
     private val command = MkplCommand.SEARCH

@@ -2,6 +2,7 @@ package handlers
 
 import CorDslMarker
 import ICorExec
+import ICorExecDsl
 import ICorWorkerDsl
 
 class CorWorker<T>(

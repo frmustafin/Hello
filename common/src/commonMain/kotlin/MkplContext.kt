@@ -2,6 +2,7 @@ package ru.otus.otuskotlin.marketplace.common
 
 import kotlinx.datetime.Instant
 import ru.otus.otuskotlin.marketplace.common.models.*
+import ru.otus.otuskotlin.marketplace.common.repo.IProfileRepository
 import ru.otus.otuskotlin.marketplace.common.stubs.MkplStubs
 
 data class MkplContext(
@@ -11,7 +12,9 @@ data class MkplContext(
 
     var workMode: MkplWorkMode = MkplWorkMode.PROD,
     var stubCase: MkplStubs = MkplStubs.NONE,
+    var settings: MkplCorSettings = MkplCorSettings.NONE,
 
+    var profileRepo: IProfileRepository = IProfileRepository.NONE,
     var requestId: MkplRequestId = MkplRequestId.NONE,
     var timeStart: Instant = Instant.NONE,
     var profileRequest: MkplProfile = MkplProfile(),
@@ -19,9 +22,14 @@ data class MkplContext(
     var profileResponse: MkplProfile = MkplProfile(),
     var profilesResponse: MutableList<MkplProfile> = mutableListOf(),
 
+    var profileRepoPrepare: MkplProfile = MkplProfile(),
+    var profileRepoDone: MkplProfile = MkplProfile(),
+    var profilesRepoDone: MutableList<MkplProfile> = mutableListOf(),
+    var profileRepoRead: MkplProfile = MkplProfile(),
+
     var profileValidating: MkplProfile = MkplProfile(),
     var profileFilterValidating: MkplProfileFilter = MkplProfileFilter(),
 
     var profileValidated: MkplProfile = MkplProfile(),
     var profileFilterValidated: MkplProfileFilter = MkplProfileFilter(),
-)
+    )
