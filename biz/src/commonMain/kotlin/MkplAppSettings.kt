@@ -5,4 +5,5 @@ data class MkplAppSettings(
     val appUrls: List<String> = emptyList(),
     val corSettings: MkplCorSettings = MkplCorSettings(),
     val processor: MkplProfileProcessor = MkplProfileProcessor(settings = corSettings),
+    val auth: AuthConfig = AuthConfig.NONE,
 )

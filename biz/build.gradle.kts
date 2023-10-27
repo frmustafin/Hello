@@ -17,6 +17,8 @@ kotlin {
                 implementation(project(":common"))
                 implementation(project(":stubs"))
                 implementation(project(":lib-core"))
+                implementation(project(":Auth"))
+                implementation(project(":repo-in-memory"))
             }
         }
         @Suppress("UNUSED_VARIABLE")

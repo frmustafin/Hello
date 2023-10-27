@@ -1,5 +1,7 @@
 package ru.otus.otuskotlin.marketplace.common.models
 
+import ru.otus.otuskotlin.marketplace.common.permissions.MkplPrincipalRelations
+
 data class MkplProfile(
     var id: MkplUserId = MkplUserId.NONE,
     var name: String = "",
@@ -9,6 +11,7 @@ data class MkplProfile(
     var description: String = "",
     var visibility: MkplVisibility = MkplVisibility.NONE,
     var lock: MkplProfileLock = MkplProfileLock.NONE,
+    var principalRelations: Set<MkplPrincipalRelations> = emptySet(),
     val permissionsClient: MutableSet<MkplProfilePermissionClient> = mutableSetOf()
 ) {
     fun deepCopy(): MkplProfile = copy(
