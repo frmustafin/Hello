@@ -2,7 +2,18 @@ package ru.otus.otuskotlin.marketplace.biz
 
 import biz.groups.operation
 import biz.groups.stubs
+import biz.permisions.accessValidation
+import biz.permisions.chainPermissions
+import biz.permisions.frontPermissions
+import biz.permisions.searchTypes
+import biz.repo.repoCreate
+import biz.repo.repoDelete
+import biz.repo.repoPrepareCreate
+import biz.repo.repoPrepareDelete
+import biz.repo.repoPrepareUpdate
+import biz.repo.repoRead
 import biz.repo.repoSearch
+import biz.repo.repoUpdate
 import biz.validation.finishProfileFilterValidation
 import biz.validation.finishProfileValidation
 import biz.validation.validateDescriptionHasContent
@@ -26,11 +37,13 @@ import biz.workers.stubUpdateSuccess
 import biz.workers.stubValidationBadDescription
 import biz.workers.stubValidationBadId
 import biz.workers.stubValidationBadTitle
+import chain
 import rootChain
 import ru.otus.otuskotlin.marketplace.common.MkplContext
 import ru.otus.otuskotlin.marketplace.common.MkplCorSettings
 import ru.otus.otuskotlin.marketplace.common.models.MkplCommand
 import ru.otus.otuskotlin.marketplace.common.models.MkplProfileLock
+import ru.otus.otuskotlin.marketplace.common.models.MkplState
 import ru.otus.otuskotlin.marketplace.common.models.MkplUserId
 import ru.otus.otuskotlin.marketplace.common.prepareResult
 import worker
@@ -61,6 +74,15 @@ class MkplProfileProcessor(val settings: MkplCorSettings = MkplCorSettings()) {
 
                     finishProfileValidation("Завершение проверок")
                 }
+                chainPermissions("Вычисление разрешений для пользователя")
+                chain {
+                    title = "Логика сохранения"
+                    repoPrepareCreate("Подготовка объекта для сохранения")
+                    accessValidation("Вычисление прав доступа")
+                    repoCreate("Создание объявления в БД")
+                }
+                frontPermissions("Вычисление пользовательских разрешений для фронтенда")
+                prepareResult("Подготовка ответа")
             }
             operation("Получить анкету", MkplCommand.READ) {
                 stubs("Обработка стабов") {
@@ -77,6 +99,19 @@ class MkplProfileProcessor(val settings: MkplCorSettings = MkplCorSettings()) {
 
                     finishProfileValidation("Успешное завершение процедуры валидации")
                 }
+                chainPermissions("Вычисление разрешений для пользователя")
+                chain {
+                    title = "Логика чтения"
+                    repoRead("Чтение объявления из БД")
+                    accessValidation("Вычисление прав доступа")
+                    worker {
+                        title = "Подготовка ответа для Read"
+                        on { state == MkplState.RUNNING }
+                        handle { profileRepoDone = profileRepoRead }
+                    }
+                }
+                frontPermissions("Вычисление пользовательских разрешений для фронтенда")
+                prepareResult("Подготовка ответа")
             }
             operation("Изменить анкету", MkplCommand.UPDATE) {
                 stubs("Обработка стабов") {
@@ -104,6 +139,16 @@ class MkplProfileProcessor(val settings: MkplCorSettings = MkplCorSettings()) {
 
                     finishProfileValidation("Успешное завершение процедуры валидации")
                 }
+                chainPermissions("Вычисление разрешений для пользователя")
+                chain {
+                    title = "Логика сохранения"
+                    repoRead("Чтение объявления из БД")
+                    accessValidation("Вычисление прав доступа")
+                    repoPrepareUpdate("Подготовка объекта для обновления")
+                    repoUpdate("Обновление объявления в БД")
+                }
+                frontPermissions("Вычисление пользовательских разрешений для фронтенда")
+                prepareResult("Подготовка ответа")
             }
             operation("Удалить анкету", MkplCommand.DELETE) {
                 stubs("Обработка стабов") {
@@ -120,6 +165,16 @@ class MkplProfileProcessor(val settings: MkplCorSettings = MkplCorSettings()) {
                     validateIdProperFormat("Проверка формата id")
                     finishProfileValidation("Успешное завершение процедуры валидации")
                 }
+                chainPermissions("Вычисление разрешений для пользователя")
+                chain {
+                    title = "Логика удаления"
+                    repoRead("Чтение объявления из БД")
+                    accessValidation("Вычисление прав доступа")
+                    repoPrepareDelete("Подготовка объекта для удаления")
+                    repoDelete("Удаление объявления из БД")
+                }
+                frontPermissions("Вычисление пользовательских разрешений для фронтенда")
+                prepareResult("Подготовка ответа")
             }
             operation("Поиск анкеты", MkplCommand.SEARCH) {
                 stubs("Обработка стабов") {
@@ -151,6 +206,12 @@ class MkplProfileProcessor(val settings: MkplCorSettings = MkplCorSettings()) {
 
                     finishProfileValidation("Успешное завершение процедуры валидации")
                 }
+                chainPermissions("Вычисление разрешений для пользователя")
+                searchTypes("Подготовка поискового запроса")
+
+                repoSearch("Поиск объявления в БД по фильтру")
+                frontPermissions("Вычисление пользовательских разрешений для фронтенда")
+                prepareResult("Подготовка ответа")
             }
         }.build()
     }

@@ -11,6 +11,7 @@ fun ICorChainDsl<MkplContext>.repoPrepareCreate(title: String) = worker {
     on { state == MkplState.RUNNING }
     handle {
         profileRepoRead = profileValidated.deepCopy()
+        profileRepoRead.id = principal.id
         profileRepoPrepare = profileRepoRead
 
     }

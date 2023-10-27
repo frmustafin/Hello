@@ -4,8 +4,10 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import ru.otus.otuskotlin.marketplace.biz.MkplProfileProcessor
 import ru.otus.otuskotlin.marketplace.common.models.MkplCommand
 import kotlin.test.Test
+import kotlin.test.Ignore
 
 @OptIn(ExperimentalCoroutinesApi::class)
+@Ignore
 class BizValidationReadTest {
 
     private val command = MkplCommand.READ

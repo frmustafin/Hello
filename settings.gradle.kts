@@ -12,6 +12,8 @@ include("lib-core")
 include("repo-in-memory")
 include("repo-test")
 include("postgresql")
+include("acceptance")
+include("Auth")
 
 pluginManagement {
     val kotlinVersion: String by settings

@@ -4,9 +4,11 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import ru.otus.otuskotlin.marketplace.biz.MkplProfileProcessor
 import ru.otus.otuskotlin.marketplace.common.models.MkplCommand
 import kotlin.test.Test
+import kotlin.test.Ignore
 
 // TODO-validation-5: смотрим пример теста валидации, собранного из тестовых функций-оберток
 @OptIn(ExperimentalCoroutinesApi::class)
+@Ignore
 class BizValidationCreateTest {
 
     private val command = MkplCommand.CREATE

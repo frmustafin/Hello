@@ -2,6 +2,8 @@ package ru.otus.otuskotlin.marketplace.common
 
 import kotlinx.datetime.Instant
 import ru.otus.otuskotlin.marketplace.common.models.*
+import ru.otus.otuskotlin.marketplace.common.permissions.MkplPrincipalModel
+import ru.otus.otuskotlin.marketplace.common.permissions.MkplUserPermissions
 import ru.otus.otuskotlin.marketplace.common.repo.IProfileRepository
 import ru.otus.otuskotlin.marketplace.common.stubs.MkplStubs
 
@@ -26,6 +28,10 @@ data class MkplContext(
     var profileRepoDone: MkplProfile = MkplProfile(),
     var profilesRepoDone: MutableList<MkplProfile> = mutableListOf(),
     var profileRepoRead: MkplProfile = MkplProfile(),
+
+    var principal: MkplPrincipalModel = MkplPrincipalModel.NONE,
+    val permissionsChain: MutableSet<MkplUserPermissions> = mutableSetOf(),
+    var permitted: Boolean = false,
 
     var profileValidating: MkplProfile = MkplProfile(),
     var profileFilterValidating: MkplProfileFilter = MkplProfileFilter(),
